@@ -42,8 +42,12 @@ In [Controllers](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFli
 Create another file in Cocoa Touch Class, name it [UpcomingViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/UpcomingViewController.swift), as Upcoming navigation bar, set the background color into green.<br/>
 Create another file in Cocoa Touch Class, name it [SearchViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/SearchViewController.swift), as Search navigation bar, set the background color into systemPink. <br/>
 Create another file in Cocoa Touch Class, name it [DownloadsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/DownloadsViewController.swift), as Downloads of movies and TV shows, set the background color into blue. <br/>
-
-
+## ***4 main navigation bars initialization:***
+In [MainTabBarViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/MainTabBarViewController.swift):<br/>
+Use vectors to initialize the 4 navigation bars:
+```swift
+let vc1/2/3/4 = UINavigationController(rootViewController: HomeViewController/UpcomingController/SearchController/DownloadsViewCo ntroller())
+```
 
 
 
