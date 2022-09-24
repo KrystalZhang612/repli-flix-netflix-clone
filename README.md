@@ -7,7 +7,7 @@ Jump to:<br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#debuggingtroubleshooting)<br/>
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#synchronous-developing-notes)<br/>
 [Method Running The Project(Locally)](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#method-running-the-projectlocally)<br/>
-Testing Result
+[Testing Result](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#testing-result)
 # Contribution
 Author 
 # Functionalities/Demo
