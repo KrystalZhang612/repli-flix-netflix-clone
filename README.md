@@ -5,7 +5,8 @@ Jump to:<br/>
 # Build
 [Prerequisites & Setups](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#prerequisites--setups)<br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#debuggingtroubleshooting)<br/>
-[Synchronous Developing Notes](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#synchronous-developing-notes)
+[Synchronous Developing Notes](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#synchronous-developing-notes)<br/>
+Method Running The Project(Locally) 
 # Contribution
 Author 
 # Functionalities/Demo
@@ -27,3 +28,4 @@ Search `main` in `Find` > `Text` > `Containing`. <br/>
 Delete **`UIKit Main Storyboard File Base Name`** to get rid of `Storyboard`. <br/>
 # Synchronous Developing Notes
 # Debugging&Troubleshooting
+# Method Running The Project(Locally)
