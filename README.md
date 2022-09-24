@@ -10,7 +10,7 @@ Jump to:<br/>
 # Developing Tools and Techniques Needed:
 [`Xcode 13.4.1 iOS 15.5+`](https://developer.apple.com/documentation/xcode-release-notes/xcode-13_4_1-release-notes) <br/>
 [`SF Symbols Explorer App`](https://apps.apple.com/us/app/sf-symbols-explorer/id1612933742) <br/>
-`Swift 5`<br/>
+[`Swift 5`](https://www.swift.org/blog/swift-5-released/)<br/>
 `MVVM(Model-View-Viewmodel)`<br/>
 # Prerequisites & Setups:
 Set Xcode simulator to Dark Theme by `Developer`-> `Dark Appearance`. <br/>
