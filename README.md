@@ -28,6 +28,24 @@ Delete `Main` and `Storyboard Key` in `Info Configuration`. <br/>
 Search `main` in `Find` > `Text` > `Containing`. <br/>
 Delete **`UIKit Main Storyboard File Base Name`** to get rid of `Storyboard`. <br/>
 # Synchronous Developing Notes
+In [SceneDelegate](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/SceneDelegate.swift):<br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Debugging&Troubleshooting
 # Method Running The Project(Locally)
 # Testing Result
