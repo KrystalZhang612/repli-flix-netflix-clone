@@ -32,7 +32,10 @@ In [SceneDelegate](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliF
 We are going to be assigning the view controller to be the root view controller of our application.<br/>
 Change ViewController into [MainTabBarViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/MainTabBarViewController.swift). <br/>
 Use 
-```swift view.backgroundColor = .systemYellow``` to test if everything works okay so far. <br/>
+```swift
+view.backgroundColor = .systemYellow
+```
+to test if everything works okay so far. <br/>
 
 
 
