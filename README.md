@@ -7,4 +7,8 @@ Jump to:<br/>
 - Generating lists of trending and upcoming movies and tv shows. <br/> 
 - Enabling to either play or download when the user clicks on certain movies or shows Navigating through different tabs. <br/>
 - Searching certain movies or shows when the user inputs certain keywords Redirecting the user directly to the official trailers by clicking on the animated titles.<br/>
-
+# Developing Tools and Techniques Needed:
+`Xcode 13.4.1 iOS 15.5+` <br/>
+`SF Symbols Explorer App` <br/>
+`Swift 5`<br/>
+`MVVM(Model-View-Viewmodel)`<br/>
