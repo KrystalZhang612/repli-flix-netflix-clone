@@ -14,5 +14,7 @@ Jump to:<br/>
 `MVVM(Model-View-Viewmodel)`<br/>
 # Prerequisites & Setups:
 Set Xcode simulator to Dark Theme by `Developer`-> `Dark Appearance`. <br/>
-
+Delete `Main` and `Storyboard Key` in `Info Configuration`. <br/>
+Search `main` in `Find` > `Text` > `Containing`. <br/>
+Delete **`UIKit Main Storyboard File Base Name`** to get rid of `Storyboard`. <br/>
 
