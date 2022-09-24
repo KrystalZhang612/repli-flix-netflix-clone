@@ -14,6 +14,6 @@ Jump to:<br/>
 `MVVM(Model-View-Viewmodel)`<br/>
 # Prerequisites & Setups:
 Set Xcode simulator to Dark Theme by Developer-> Dark Appearance. <br/>
-<p style="font-family: courier; font-style: regular">
+<p style="font-family: times, serif; font-size:11pt; font-style:italic">
     Why did we use these specific parameters during the calculation of the fingerprints?
 </p>
