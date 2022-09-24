@@ -48,6 +48,30 @@ Use vectors to initialize the 4 navigation bars:
 ```swift
 let vc1/2/3/4 = UINavigationController(rootViewController: HomeViewController/UpcomingController/SearchController/DownloadsViewCo ntroller())
 ```
+## ***Animation creation:***
+In [MainTabBarViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/MainTabBarViewController.swift):<br/>
+```swift
+setViewControllers([vc1,vc2,vc3,vc4],animated: true)
+```
+## ***Build RepliFlix in Simulator to test if color backgrounds switch through tabs bars correctly. Selecting icon images:***
+Search “house” in SF Symbols Explorer, then in [MainTabBarViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/MainTabBarViewController.swift), set “house”
+symbol as our [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift) tab bar:
+```swift 
+vc1.tabBarItem.image = UIImage(systemName: “house”)
+```
+Set “play.circle” symbol as our [UpcomingViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/UpcomingViewController.swift) tab bar:
+```swift 
+vc2.tabBarItem.image = UIImage(systemName: “play.circle”)
+```
+Set “magnifyingglass” symbol as our [SearchViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/SearchViewController.swift) tab bar:
+```swift 
+vc3.tabBarItem.image = UIImage(systemName: “magnifyingglass”)
+```
+Set “arrow.down.to.line” symbol as our [DownloadsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/DownloadsViewController.swift) tab bar:
+```swift 
+vc4.tabBarItem.image = UIImage(systemName: “arrow.down.to.line”).
+```
+
 
 
 
