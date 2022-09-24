@@ -4,6 +4,7 @@ Jump to:<br/>
 [`RepliFlix Overview on iOS 15.5 iPhone Pro Max 13 Simulator`](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20Overview%20on%20iOS%2015.5%20iPhone%20Pro%20Max%2013%20Simulator.png) <br/>
 # Build
 [Prerequisites & Setups](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#prerequisites--setups)<br/>
+Debugging&Troubleshooting
 # Contribution
 Author 
 # Functionalities/Demo
@@ -23,3 +24,4 @@ Set Xcode simulator to Dark Theme by `Developer`-> `Dark Appearance`. <br/>
 Delete `Main` and `Storyboard Key` in `Info Configuration`. <br/>
 Search `main` in `Find` > `Text` > `Containing`. <br/>
 Delete **`UIKit Main Storyboard File Base Name`** to get rid of `Storyboard`. <br/>
+# Debugging&Troubleshooting
