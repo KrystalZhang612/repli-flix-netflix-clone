@@ -69,7 +69,7 @@ vc3.tabBarItem.image = UIImage(systemName: “magnifyingglass”)
 ```
 Set “arrow.down.to.line” symbol as our [DownloadsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/DownloadsViewController.swift) tab bar:
 ```swift 
-vc4.tabBarItem.image = UIImage(systemName: “arrow.down.to.line”).
+vc4.tabBarItem.image = UIImage(systemName: “arrow.down.to.line”)
 ```
 
 
