@@ -17,12 +17,9 @@ class HeroHeaderUIView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 5
         
-        return button
-        
+        return button      
         
     }()
-    
-    
     
     private let playButton: UIButton = {
         let button = UIButton()
@@ -34,8 +31,7 @@ class HeroHeaderUIView: UIView {
         return button
     }()
     
-    
-    
+  
     private let heroImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -82,8 +78,7 @@ class HeroHeaderUIView: UIView {
         
         NSLayoutConstraint.activate(playButtonConstraints)
         NSLayoutConstraint.activate(downloadButtonConstraints)
-        
-        
+           
     }
     
     
