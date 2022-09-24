@@ -39,6 +39,9 @@ to test if everything works okay so far. <br/>
 ## ***4 main navigation bars in UI in Cocoa Touch Class Creation:***
 Create a new group for all controllers, name the folder of new group as [Controllers](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFlix/Controllers). <br/>
 In [Controllers](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFlix/Controllers), create a new file in Cocoa Touch Class, and name it [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift) as Home navigation bar, set the background color into red. <br/>
+Create another file in Cocoa Touch Class, name it [UpcomingViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/UpcomingViewController.swift), as Upcoming navigation bar, set the background color into green.<br/>
+Create another file in Cocoa Touch Class, name it [SearchViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/SearchViewController.swift), as Search navigation bar, set the background color into systemPink. <br/>
+Create another file in Cocoa Touch Class, name it [DownloadsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/DownloadsViewController.swift), as Downloads of movies and TV shows, set the background color into blue. <br/>
 
 
 
