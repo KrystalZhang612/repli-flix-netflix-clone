@@ -157,17 +157,3 @@ extension SearchViewController: UISearchResultsUpdating, SearchResultsViewContro
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
