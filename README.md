@@ -38,6 +38,8 @@ view.backgroundColor = .systemYellow
 to test if everything works okay so far. <br/>
 ## ***4 main navigation bars in UI in Cocoa Touch Class Creation:***
 Create a new group for all controllers, name the folder of new group as [Controllers](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFlix/Controllers). <br/>
+In [Controllers](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFlix/Controllers), create a new file in Cocoa Touch Class, and name it [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift) as Home navigation bar, set the background color into red. <br/>
+
 
 
 
