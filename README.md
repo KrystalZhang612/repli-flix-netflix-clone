@@ -5,7 +5,7 @@ Jump to:<br/>
 # Build
 [Prerequisites & Setups](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#prerequisites--setups)<br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#debuggingtroubleshooting)<br/>
-Synchronous Developing Notes
+[Synchronous Developing Notes](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#synchronous-developing-notes)
 # Contribution
 Author 
 # Functionalities/Demo
