@@ -37,6 +37,8 @@ view.backgroundColor = .systemYellow
 ```
 to test if everything works okay so far. <br/>
 ## ***4 main navigation bars in UI in Cocoa Touch Class Creation:***
+Create a new group for all controllers, name the folder of new group as [Controllers](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFlix/Controllers). <br/>
+
 
 
 
