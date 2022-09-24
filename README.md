@@ -9,7 +9,7 @@ Jump to:<br/>
 - Searching certain movies or shows when the user inputs certain keywords Redirecting the user directly to the official trailers by clicking on the animated titles.<br/>
 # Developing Tools and Techniques Needed:
 [`Xcode 13.4.1 iOS 15.5+`](https://developer.apple.com/documentation/xcode-release-notes/xcode-13_4_1-release-notes) <br/>
-`SF Symbols Explorer App` <br/>
+[`SF Symbols Explorer App`](https://apps.apple.com/us/app/sf-symbols-explorer/id1612933742) <br/>
 `Swift 5`<br/>
 `MVVM(Model-View-Viewmodel)`<br/>
 # Prerequisites & Setups:
