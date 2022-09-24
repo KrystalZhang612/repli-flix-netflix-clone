@@ -13,6 +13,6 @@ Jump to:<br/>
 `Swift 5`<br/>
 `MVVM(Model-View-Viewmodel)`<br/>
 # Prerequisites & Setups:
-Set Xcode simulator to Dark Theme by Developer-> Dark Appearance. <br/>
-`Hello This is a code`
+Set Xcode simulator to Dark Theme by `Developer`-> `Dark Appearance`. <br/>
+
 
