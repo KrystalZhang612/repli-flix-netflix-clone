@@ -12,3 +12,8 @@ Jump to:<br/>
 `SF Symbols Explorer App` <br/>
 `Swift 5`<br/>
 `MVVM(Model-View-Viewmodel)`<br/>
+# Prerequisites & Setups:
+Set Xcode simulator to Dark Theme by Developer-> Dark Appearance. <br/>
+<p style="font-family: courier; font-style: regular">
+    Why did we use these specific parameters during the calculation of the fingerprints?
+</p>
