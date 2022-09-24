@@ -140,8 +140,3 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
 }
 
 
-
-
-
-
-
