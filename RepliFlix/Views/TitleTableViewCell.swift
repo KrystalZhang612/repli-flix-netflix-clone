@@ -66,7 +66,6 @@ class TitleTableViewCell: UITableViewCell {
         
         ]
         
-        
         NSLayoutConstraint.activate(titlesPosterUIImageViewConstraints)
         NSLayoutConstraint.activate(titleLabelConstraints)
         NSLayoutConstraint.activate(playTitleButtonConstraints)
@@ -86,6 +85,4 @@ class TitleTableViewCell: UITableViewCell {
     required init?(coder: NSCoder){
         fatalError()
     }
-    
-
 }
