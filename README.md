@@ -8,7 +8,7 @@ Jump to:<br/>
 - Enabling to either play or download when the user clicks on certain movies or shows Navigating through different tabs. <br/>
 - Searching certain movies or shows when the user inputs certain keywords Redirecting the user directly to the official trailers by clicking on the animated titles.<br/>
 # Developing Tools and Techniques Needed:
-`Xcode 13.4.1 iOS 15.5+` <br/>
+[`Xcode 13.4.1 iOS 15.5+`](https://developer.apple.com/documentation/xcode-release-notes/xcode-13_4_1-release-notes) <br/>
 `SF Symbols Explorer App` <br/>
 `Swift 5`<br/>
 `MVVM(Model-View-Viewmodel)`<br/>
@@ -17,4 +17,3 @@ Set Xcode simulator to Dark Theme by `Developer`-> `Dark Appearance`. <br/>
 Delete `Main` and `Storyboard Key` in `Info Configuration`. <br/>
 Search `main` in `Find` > `Text` > `Containing`. <br/>
 Delete **`UIKit Main Storyboard File Base Name`** to get rid of `Storyboard`. <br/>
-
