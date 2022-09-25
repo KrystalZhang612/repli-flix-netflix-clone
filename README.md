@@ -699,7 +699,26 @@ CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
         navigationController?.pushViewController(vc, animated: true)}}
 ```
 Build and run we then have [homeview.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)
-To make the posters clickable, set the delegate to controller, and modify the extension in [HomeViewController(https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift) by placing the current contents into a weak self of dispatch queue:
+To make the posters clickable, set the delegate to controller, and modify the extension in [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift) by placing the current contents into a weak self of dispatch queue:
+```swift 
+DispatchQueue.main.async { [weak self] in
+            let vc = TitlePreviewViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc,
+animated: true)
+```
+Now we successfully achieve that functionality of being redirected to a certain movie’s trailer playing and downloading page when clicking on it:<br/>
+I.e. Thor: Love and Thunder 2022<br/>
+[Before redirecting.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+[after redirecting.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+We also need to add:
+```swift
+overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+```
+to better modify the overview alignment.<br/>
+[After modifying overview alignment constraint.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+
+
 
 
 
@@ -722,7 +741,12 @@ To make the posters clickable, set the delegate to controller, and modify the ex
 # Debugging&Troubleshooting
 - Possible error: `SD_IMAGE BAD INSTRUCTION`. DEBUGGING: Implement [SearchResultsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/General/SearchResultsViewController.swift) to fix the error. We need to adjust the simulator to iPhone 13 Pro for the screen to better fit searching blocks.
 - Noticeable error:  SD Image BAD INSTRUCTION error. DEBUGGING:  https://github.com/SDWebImage/SDWebImage/issues/3400. Failed to log metrics. 
-- 
+- Error: May encounter WKWebView ViewportSizing logs in SwiftUI warning with:
+  ```swift
+  [ViewportSizing] maximumViewportInset cannot be larger than frame
+  ```
+-   
+  
 
 
 
@@ -732,5 +756,11 @@ To make the posters clickable, set the delegate to controller, and modify the ex
 [play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/play%20title%20button%20added%20in%20upcoming.png)<br/>
 [Searching placeholder works.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/searching%20placeholder%20works.png)<br/>
 [homeview.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/homeview.png)<br/>
+[Before redirecting.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/before%20redirecting.png)<br/>
+[after redirecting.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/after%20redirecting.png)<br/>
+[After modifying overview alignment constraint.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/After%20modifying%20overview%20alignment%20.png)<br/>
+
+
+
 
 
