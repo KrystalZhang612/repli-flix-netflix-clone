@@ -314,7 +314,7 @@ Similarly as above, we need to get trending TVs by creating function:
 func getTrendingTvs(completion: @escaping (Result<[Tv], Error>)-> Void)
 ```
 with a completion callback handler, we use `JSONSerialization` here instead to fetch data.<br/>
-==NOTE: To fetch data successfully, we must ensure to resume the task at the end of every API. Thus, we retrieved all upcoming movies and trending movies from the database.==<br/>
+==NOTE: To fetch data successfully, we must ensure to resume the task at the end of every API. Thus, we retrieved all upcoming movies and trending movies from the database==<br/>
 
 
 
