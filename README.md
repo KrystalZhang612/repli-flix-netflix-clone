@@ -530,7 +530,7 @@ Use `layout.minimumInteritemSpacing = 0` to set the minimum intermittent spacing
 
 
 # Debugging&Troubleshooting
-- Possible error: SD_IMAGE BAD INSTRUCTION: Implement [SearchResultsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/General/SearchResultsViewController.swift) to fix the error. We need to adjust the simulator to iPhone 13 Pro for the screen to better fit searching blocks.
+- Possible error: `SD_IMAGE BAD INSTRUCTION`. DEBUGGING: Implement [SearchResultsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/General/SearchResultsViewController.swift) to fix the error. We need to adjust the simulator to iPhone 13 Pro for the screen to better fit searching blocks.
 - 
 
 
