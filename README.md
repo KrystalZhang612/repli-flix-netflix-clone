@@ -404,8 +404,57 @@ And to avoid the frequently occurred “switch must be exhaustive” error, we m
 ```
 Remember to fetch upcoming movies data with `fetchUpcoming()`<br/>
 [viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#testing-result)
-     
-     
+## ***Creating custom TableViewCell from the upcoming table:***
+We need to create a UI Image so that it holds the poster for the title retrieved from the server.<br/>
+So in [TitleTableViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/TitleTableViewCell.swift) under Cocoa Touch class:
+```swift 
+private let titlesPosterUIImageView: UIImageView = {
+        let imageView =  UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+```
+Where we need:
+```swift 
+label.translatesAutoresizingMaskIntoConstraints = false
+```
+```swift 
+imageView.translatesAutoresizingMaskIntoConstraints = false
+```
+When setting up UIButton, we also need to activate this:
+```swift 
+button.translatesAutoresizingMaskIntoConstraints = false
+```
+Similar to [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift), we need a method to apply constraints:
+```swift
+ private func applyConstraints(){
+        let titlesPosterUIImageViewConstraints = [
+            titlesPosterUIImageView.leadingAnchor.constraint(equalTo:
+contentView.leadingAnchor),
+            titlesPosterUIImageView.topAnchor.constraint(equalTo:
+contentView.topAnchor, constant: 15),
+            titlesPosterUIImageView.bottomAnchor.constraint(equalTo:
+contentView.bottomAnchor, constant: -15),
+titlesPosterUIImageView.widthAnchor.constraint(equalToConstant: 100)
+        ]
+```
+And to activate the layout constraints above:
+```swift 
+ NSLayoutConstraint.activate(titlesPosterUIImageViewConstraints)
+```
+We also add the upcoming play title button constraints by:
+```swift
+ let playTitleButtonConstraints = [
+            playTitleButton.trailingAnchor.constraint(equalTo:
+contentView.trailingAnchor, constant: -20),
+            playTitleButton.centerYAnchor.constraint(equalTo:
+contentView.centerYAnchor)
+```
+And activate the play title button constraints with:
+```swift
+NSLayoutConstraint.activate(playTitleButtonConstraints)
+```
+[play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#testing-result)
+
                 
 
 
@@ -432,3 +481,4 @@ Remember to fetch upcoming movies data with `fetchUpcoming()`<br/>
 # Method Running The Project(Locally)
 # Testing Result
 [viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/viewing%20poster%20images%20inside%20CollectionViewCell.png)
+[play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/play%20title%20button%20added%20in%20upcoming.png)
