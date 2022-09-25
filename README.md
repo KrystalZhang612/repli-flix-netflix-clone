@@ -116,6 +116,132 @@ Then initialize the cell style and reusable identifier:
 override init...
 super.init(style: style, reuseIdentifier: reuseIdentifier)
 ```
+And implement the NSCoder as well.<br/>
+Also, we need to specify the header to appear separately from cell blocks with 40 px height:
+```swift 
+let table =
+UITableView(frame: .zero, style: .grouped)
+```
+In [CollectionViewTableViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/CollectionViewTableViewCell.swift), we need to define a new connection view cell using the same anonymous closure pattern:
+```swift 
+private let collectionView: UICollectionView = {... }
+```
+## ***Cells Layouts arrangement:***
+Set scroll directions are horizontal to navigate through categories:
+```swift 
+layout.scrollDirection = .horizontal
+```
+Add an arbitrary cell name in the content view collection, and conform to those two protocols that allows us to display pictures and data inside the collection view.<br/>
+We want our collection view to be the entire body of the cell, so we need to do:
+```swift 
+override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionView.frame = contentView.bounds }
+```
+Customize the size of each cell to get them independently aligned and horizontally scrollable:
+```swift 
+layout.itemSize =  CGSize(width: 140, height: 200)
+```
+## ***Adding & Modifying Headers to our TableView:***
+In [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift):
+```swift 
+homeFeedTable.tableHeaderView = UIView(frame: CGRect(x: 0, y:0, width: view.bounds.width, height: 450))
+```
+Then we can modify the header for each section by first creating a new file under the View folder in Cocoa class and name it as [HeroHeaderUIView](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/HeroHeaderUIView.swift), which is in UIView.<br/>
+Starting off by initializing frame and required initializer:
+```swift 
+ override init(frame: CGRect){
+        super.init(frame: frame)
+    }
+    required init?(coder: NSCoder){
+        fatalError()
+    }
+```
+Then we need a image that contains the header:
+```swift 
+private let heroImageView: UIImageView = {...}
+```
+Enable ImageView functionality:
+```swift 
+let imageView = UIImageView()
+```
+We also want to avoid overflow:
+```swift
+imageView.clipsToBounds = true
+```
+## ***Adding Poster Images with effects with GCColor:***
+Add a new image set and name the image in Assets, and in [HeroHeaderUIView](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/HeroHeaderUIView.swift), add the image with its name: 
+```swift 
+imageView.image = UIImage(named: "image-name")
+```
+Also in [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift), we need to remove the arbitrary UIImageView setup and replace it with our hero image:
+```swift 
+let headerView = HeroHeaderUIView(frame: CGRect(x:0, y:0, width: view.bounds.width, height: 450))
+```
+To add fading-out effect to the header poster image, we need to utilize the gradient, we want to set the color to be clear by CGColor:
+```swift 
+gradientLayer.colors = [
+            UIColor.clear.cgColor,
+            UIColor.systemBackground.cgColor]
+```
+Then we need to add this sub layer to our UIView and give the gradient a frame:
+```swift 
+ gradientLayer.frame = bounds
+ layer.addSublayer(gradientLayer)
+ ```
+ Now we have the transparent-fading-out header poster.<br/>
+ ## ***Add two buttons for Play & Download:***
+ Play button: set title, set color, set width, return:
+ ```swift 
+  private let playButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Play", for: .normal)
+        button.layer.borderColor = UIColor.systemBackground.cgColor
+        button.layer.borderWidth = 1
+        return button
+}()
+```
+Also we need to set some constraints to align button perfectly:
+```swift
+button.translatesAutoresizingMaskIntoConstraints = false
+```
+Initialize the constraints as false so we can use it elsewhere further, so we need a function `applyConstraints` to setup playButton constraints:<br/>
+Leading anchor left-right:
+```swift 
+let playButtonConstraints = playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 90)
+```
+to move the Play button upward, set the bottom anchor to negative value:
+```swift 
+playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
+```
+To modify width:
+```swift 
+playButton.widthAnchor.constraint(equalToConstant: 100)
+```
+Activate the playButton constraints:
+```swift 
+NSLayoutConstraint.activate(playButtonConstraints
+```
+Similarly layer setup for Download button. Besides, for aesthetic purposes, let’s give the two buttons rounded corners with radius of 5:
+```swift 
+button.layer.cornerRadius = 5
+```
+## ***Adding Netflix Logo:***
+Start off by defining a new configuration function:
+```swift 
+private func configureNavbar(){...}
+```
+Add Netflix logo PNG transparent image into Assets, to keep the image color original, we need:
+```swift 
+image = image?.withRenderingMode(.alwaysOriginal)
+```
+So the logo retains its red original color and dims when clicked.<br/>
+
+
+ 
+
+
+
 
 
 
