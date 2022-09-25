@@ -71,6 +71,35 @@ Set “arrow.down.to.line” symbol as our [DownloadsViewController](https://git
 ```swift 
 vc4.tabBarItem.image = UIImage(systemName: “arrow.down.to.line”)
 ```
+## ***Build RepliFlix in Simulator to test if the tab bars images appear correctly. Setting up the titles for 4 navigation bars:***
+```swift 
+vc1/2/3/4.title = “Home/Coming Soon/Top Search/Downloads”
+```
+Change all ViewControllers’ backgrounds into defaulted system themed color:
+```swift
+view.backgroundColor = .systemBackground
+```
+In [MainTabBarViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/MainTabBarViewController.swift), add 
+```swift 
+tabBar.tintColor = .label
+```
+to add tint on bars. <br/>
+## ***HomeFeedTable prototype setup:***
+In [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift), use the anonymous closure pattern to initialize our table to be a UI. <br/>
+## ***tableView setup:***
+```swift
+let table = UITableView()...
+```
+Set up our register to be a reusable identifier for further cell customization:
+```swift
+table.register(UITableViewCell.self, forCellResuseIdentifier: “cell”)
+```
+To add data, create `tableView` function, dequeue the cell with text content “Hello World”:
+```swift 
+...tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)...cell.textLabel?.text = "Hello world"
+```
+A vertical list of “Hello World” should be outputting. Done setting up tableView.<br/>
+
 
 
 
