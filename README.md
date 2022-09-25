@@ -303,6 +303,21 @@ struct Movie {id: Int media_type: String? original_name: String? original_title:
 ```
 Also conform the protocols with `Codable` to get the arrays of objects set up.<br/>
 ## ***Using Extensions and Fetch and Retrieve API Datas from Database:***
+Here we need to use Xcode extensions to capitalize only the first letter for the section titles: <br/>
+So in [Resources](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFlix/Resources), create a new file named [Extensions](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Resources/Extensions.swift),then create an function:
+```swift 
+func capitalizeFirstLetter() -> String {return self.prefix(1).uppercased()+ self.lowercased().dropFirst()
+```
+to capitalize the first letter, drop off the capitalized first letter while lowering case the rest letters fo avoid duplicate by `dropFirst()`.<br/>
+Similarly as above, we need to get trending TVs by creating function:
+```swift 
+func getTrendingTvs(completion: @escaping (Result<[Tv], Error>)-> Void)
+```
+with a completion callback handler, we use `JSONSerialization` here instead to fetch data.<br/>
+==NOTE: To fetch data successfully, we must ensure to resume the task at the end of every API. Thus, we retrieved all upcoming movies and trending movies from the database.==<br/>
+
+
+
 
  
 
