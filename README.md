@@ -403,7 +403,7 @@ And to avoid the frequently occurred “switch must be exhaustive” error, we m
     print(error.localizedDescription)
 ```
 Remember to fetch upcoming movies data with `fetchUpcoming()`<br/>
-[viewing poster images inside CollectionViewCell.PNG]()
+[viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#testing-result)
      
      
                 
@@ -431,4 +431,4 @@ Remember to fetch upcoming movies data with `fetchUpcoming()`<br/>
 # Debugging&Troubleshooting
 # Method Running The Project(Locally)
 # Testing Result
-viewing poster images inside [CollectionViewCell.PNG]()
+[viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/viewing%20poster%20images%20inside%20CollectionViewCell.png)
