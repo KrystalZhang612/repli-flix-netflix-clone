@@ -373,7 +373,37 @@ DispatchQueue.main.async { [weak self] in self?.collectionView.reloadData()
 ```
 since we have retrieved the section titles from the [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift), so update and reload the titles array. So now we passed data into CollectionView and got images for each section.<br/>
 ## ***Viewing poster images inside CollectionViewCell:***
+Search [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction)<br/>
+Then in our configuration function, pass API images model:
+```swift 
+ guard let url = URL(string:
+"https://image.tmdb.org/t/p/w500/\(model)") else {
+            return
+        posterImageView.sd_setImage(with: url, completed: nil)
+```
+Where `image.tmdb.org/t/p/w500` is the API posters images model to pass.<br/>
+## ***Creating Upcoming TableView inside Upcoming Tab:***
+In UpcomingViewController, create a anonymous closure pattern function as Upcoming Table:
+```swift
+ private let upcomingTable: UITableView = {} ()
+```
+Set a normal register to itself:
+```swift 
+table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+```
+We need to make sure the data reloaded into upcoming table inside async function and be executed in main thread by adding:
+```swift 
+DispatchQueue.main.async {
+      self?.upcomingTable.reloadData()}
+```
+And to avoid the frequently occurred “switch must be exhaustive” error, we must append a failure case after every success to localized description:
 
+```swift
+ case .failure(let error):
+    print(error.localizedDescription)
+```
+Remember to fetch upcoming movies data with `fetchUpcoming()`<br/>
+[viewing poster images inside CollectionViewCell.PNG]()
      
      
                 
@@ -401,3 +431,4 @@ since we have retrieved the section titles from the [HomeViewController](https:/
 # Debugging&Troubleshooting
 # Method Running The Project(Locally)
 # Testing Result
+viewing poster images inside [CollectionViewCell.PNG]()
