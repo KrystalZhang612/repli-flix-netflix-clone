@@ -717,26 +717,204 @@ overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 ```
 to better modify the overview alignment.<br/>
 [After modifying overview alignment constraint.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+## ***Refactoring TableViewHeader Hero title:***
+Fetch random trending movies with this function:
+```swift 
+ private func configureHeroHeaderView() {
+        APICaller.shared.getTrendingMovies { [weak self] result in
+            switch result {
+            case .success(let titles):
+  
+self?.randomTrendingMovie =  titles.randomElement()
+            case .failure(let error):
+                print(error.localizedDescription)}}}
+```
+Also in order to generate the random trending element in Home View, in Hero View:
+```swift 
+ private func configureHeroHeaderView(){
+        APICaller.shared.getTrendingMovies { [weak self] result in
+            switch result {
+            case .success(let titles):
+                let selectedTitle =  titles.randomElement()
+                self?.randomTrendingMovie =  selectedTitle
+                self?.headerView?.configure(with:
+TitleViewModel(titleName: selectedTitle?.original_title ?? "",
+posterURL: selectedTitle?.poster_path ?? ""))
+            case .failure(let error):
+                print(error.localizedDescription)}}
+```
+Now we successfully generated different random trending movies in Home View page, and each time we reopen the app, there are different trending movie being generated:<br/>
+[random element generated1.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+[random element generated2.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+## ***Handling Tapping across all ViewControllers:***
+In [UpcomingViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/UpcomingViewController.swift):
+```swift 
+ APICaller.shared.getMovie(with: titleName) {[weak self ] result in
+            switch result {
+            case .success(let videoElement):
+                DispatchQueue.main.async {
+                    let vc = TitlePreviewViewController()
+                    vc.configure(with: TitlePreviewViewModel(title:
+titleName, youtubeView: videoElement, titleOverview: title.overview ??
+""))
+                    self?.navigationController?.pushViewController(vc,
+animated: true)}
+            case .failure(let error):
+             print(error.localizedDescription)
+```
+Then build and run, in the simulator, we will also be redirected to the trailer playing and downloading page of a specific movie if we click it on Upcoming, just like HomeView.<br/>
+`Upcoming Done.`<br/>
+In [SearchViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/SearchViewController.swift), copy and paste the same table view function.<br/>
+`TopSearch Done.`<br/>
+In the [SearchResultsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/General/SearchResultsViewController.swift), we need to create a new protocol:
+```swift 
+protocol SearchResultsViewControllerDelegate: AnyObject {
+func SearchResultsViewControllerDidTapItem(_ viewModel: TitlePreviewViewModel)} 
+```
+And make it an accessible public weak var delegate:
+```swift 
+public weak var delegate: SearchResultsViewControllerDelegate?
+```
+Now configure to conform the searching view results in SearchViewController:<br/>
+[searching bar searching results showing.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+We also want to be redirected to a downloading page when we click on the home view posters.<br/>
+So in [CollectionViewTableViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/CollectionViewTableViewCell.swift), we need to add a downloading action:
+```swift 
+func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let config = UIContextMenuConfiguration(
+            identifier: nil,
+            previewProvider: nil){ _ in
+                let downloadAction = UIAction(title: "Download",
+subtitle: nil, image: nil, identifier: nil,
+                    discoverabilityTitle: nil, state: .off) { _ in
+                    print("Download tapped")
+                }
+                return UIMenu(title: "", image: nil, identifier: nil,
+options: .displayInline, children: [downloadAction])
+            }
+        return config }}
+```
+So that in Home View, when we click on any poster and hold for couple second, there will appear a download option for us to be redirected to Downloads bar for the movie:<br/>
+[Long press download action.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+Add optional downloading path:
+```swift
+ private func downloadTitleAt(indexPath: IndexPath){
+        print("Downloading \(titles[indexPath.row].original_title)")}}
+```
+## ***Core Data:***
+Add core data to an existing project:<br/>
+Create a new test project with Core Data selected.<br/>
+Then in its [AppDelegate](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/AppDelegate.swift), copy the whole CORE DATA STACK.<br/>
+Paste the whole core data stack into the class in AppDelegate within the RepliFlix project.<br/>
+Add `import CoreData` at the top.<br/>
+Create a new Core Data file under RepliFlix path and name it as [RepliFlixModel](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/RepliFlixModel.xcdatamodeld/ReplixFlixModel.xcdatamodel/contents).<br/>
+Modify in AppDelegate: 
+```swift 
+let container = NSPersistentContainer(name: "RepliFlixModel")
+```
+Add Entity in RepliFlixModel, and rename it as `TitleItem`.<br/>
+Add all the attributes from `Title` to the entity.<br/>
+`NOTE`: To ensure `TitleItem` is accessible in `CollectionViewTableCell`, close Xcode and reopen it. Now the entity `TitleItem` should be fully accessible publicly.<br/>
+To implement core data:<br/>
+First create a new swift file under `Manager` and name it [DataPersistenceManager](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Managers/DataPersistenceManager.swift).<br/>
+So this class will be responsible for downloading the core data and talking to its API.<br/>
+Add an instance/reference:
+```swift
+guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return}
+```
+to the app delegate, with context:
+```
+let context = appDelegate.persistentContainer.viewContext
+```
+Create a new item to pass all `Title` attributes into the item:
+```swift 
+let item = TitleItem(context: context)
+        item.original_title = model.original_title
+        item.id = Int64(model.id)
+        item.original_name = model.original_name
+        item.overview = model.overview
+        item.media_type = model.media_type
+        item.poster_path = model.poster_path
+        item.release_date = model.release_date
+        item.vote_count = Int64(model.vote_count)
+        item.vote_average = model.vote_average
+```
+Then manage to save the data with:
+```swift 
+ do{try context.save()} catch {print(error.localizedDescription)}
+```
+Pass EMPTY to completion success case: 
+```swift 
+completion(.success(()))
+```
+For the completion failure case, create a enum:
+```swift 
+ enum DatabasError: Error{
+      case failedToSaveData }
+      completion(.failure(DatabasError.failedToSaveData))
+```
+Now we need to fetch the data from the server database:
+```swift 
 
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   func fetchingTitleFromDataBase(completion: @escaping
+(Result<[TitleItem], Error>) -> Void){
+        guard let appDelegate = UIApplication.shared.delegate as?
+AppDelegate else {
+            return}
+        let context = appDelegate.persistentContainer.viewContext
+        let request: NSFetchRequest<TitleItem>
+        request = TitleItem.fetchRequest()
+             do {
+            let titles = try context.fetch(request)
+            completion(.success(titles))
+        } catch {
+            completion(.failure(DatabasError.failedToFetchData))
+```
+Now we have our data fetching request sent and done.<br/>
+Fetch local storage for download in [DownloadsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/DownloadsViewController.swift):
+```swift
+private func fetchLocalStorageForDownload(){
+        DataPersistenceManager.shared.fetchingTitleFromDataBase {}
+```
+And also reload the data while fetching in:
+```swift
+ self?.downloadedTable.reloadData()
+```
+Also for the downloaded table view to show, we need to add:
+```swift 
+view.addSubview(downloadedTable)
+```
+Now we need to ask database manager to delete certain object:
+```swift 
+context.delete(model)
+```
+We also need to implement a function in [DownloadsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/DownloadsViewController.swift) to delete data:
+```swift 
+ func tableView(_ tableView: UITableView, commit editingStyle:
+UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle{
+        case .delete:
+           DataPersistenceManager.shared.deleteTitleWith(model:
+titles[indexPath.row]) { [weak self] result in
+                switch result{
+                case .success():
+                    print("Delete from the database")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                self?.titles.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        default:
+            break; }
+```
+So we are able to delete the already downloaded movies in the Downloads bar.<br/>
+## ***Using Notification Center to update ViewControllers:***
+```swift 
+NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"), object: nil, queue: nil) { _ in
+            self.fetchLocalStorageForDownload()}
+```
+So the system will be notified when a certain movie has finished downloading.<br/>
 
 # Debugging&Troubleshooting
 - Possible error: `SD_IMAGE BAD INSTRUCTION`. DEBUGGING: Implement [SearchResultsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/General/SearchResultsViewController.swift) to fix the error. We need to adjust the simulator to iPhone 13 Pro for the screen to better fit searching blocks.
@@ -744,13 +922,16 @@ to better modify the overview alignment.<br/>
 - Error: May encounter WKWebView ViewportSizing logs in SwiftUI warning with:
   ```swift
   [ViewportSizing] maximumViewportInset cannot be larger than frame
-  ```
--   
-  
-
-
+  ``` 
+  DEBUGGING: Replace `let webView = WKWebView()` with `let webView = WKWebView(frame: CGRect(x: 0.0, y: 0.0, width: 0.1, height: 0.1))`
+  Reference: https://stackoverflow.com/questions/73314364/wkwebview-viewportsizing-logs-in-swiftui
 
 # Method Running The Project(Locally)
+
+
+
+
+
 # Testing Result
 [viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/viewing%20poster%20images%20inside%20CollectionViewCell.png)<br/>
 [play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/play%20title%20button%20added%20in%20upcoming.png)<br/>
@@ -759,6 +940,12 @@ to better modify the overview alignment.<br/>
 [Before redirecting.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/before%20redirecting.png)<br/>
 [after redirecting.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/after%20redirecting.png)<br/>
 [After modifying overview alignment constraint.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/After%20modifying%20overview%20alignment%20.png)<br/>
+[random element generated1.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/random%20element%20generated1.png)<br/>
+[random element generated2.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/random%20element%20generated2.png)<br/>
+[searching bar searching results showing.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/searching%20bar%20searching%20results%20showing.png)<br/>
+[Long press download action.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/long%20press%20download%20action.png)<br/>
+
+
 
 
 
