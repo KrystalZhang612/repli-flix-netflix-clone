@@ -453,9 +453,61 @@ And activate the play title button constraints with:
 ```swift
 NSLayoutConstraint.activate(playTitleButtonConstraints)
 ```
-[play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#testing-result)
-
-                
+[play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#testing-result)<br/>
+Also modify the sizes, the colors and other alignments of the play buttons:
+```swift
+let image = UIImage(systemName: "play.circle", withConfiguration:
+UIImage.SymbolConfiguration(pointSize: 30))
+button.setImage(image, for: .normal)
+```
+To prevent each poster from overflowing the container and decrease the padding slightly;
+```swift 
+imageView.clipsToBounds = true in titlesPosterUIImageView
+```
+## ***Creating Top Search TableView inside TopSearch tab:***
+Start off to create a bold solidary white title of “Search”:
+```swift
+ override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Search"
+        navigationController?.navigationBar.prefersLargeTitles = true
+  navigationController?.navigationItem.largeTitleDisplayMode = .always
+```
+Then to create a table view for Search section before the user entering a query:<br/>
+Pass data with:
+```swift 
+discoverTable.delegate = self
+discoverTable.dataSource = self
+```
+Similar to `getUpcoming` and `getToprated`, we need a configured data fetching method:
+```swift 
+ private func fetchDiscoverMovies() {
+        APICaller.shared.getDiscoverMovies{[weak self] result in
+            switch result {
+            case .success(let titles):
+                self?.titles = titles
+                DispatchQueue.main.async {
+                    self?.discoverTable.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription) }}}
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        discoverTable.frame = view.bounds }
+```
+DispatchQueue here still to override the main thread.<br/>
+## ***Creating SearchResultsViewController to display search results:***
+To read the database server once the user queries completed, we need to create a new file under `Controller` named [SearchResultsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/General/SearchResultsViewController.swift). <br/>
+Create an anonymous closure pattern method to hold the search results controller:<br/>
+```swift 
+private let searchController: UISearchController
+```
+Prompt searching request in the controller:
+```swift 
+controller.searchBar.placeholder = "Search for a movie or a tv show"
+```
+Since we set the controller background color as systemGreen, when entering a user query in the placeholder, the current green background will pop out instead of a search result.<br/>
+Use `layout.minimumInteritemSpacing = 0` to set the minimum intermittent spacing.<br/>
 
 
 
@@ -478,7 +530,13 @@ NSLayoutConstraint.activate(playTitleButtonConstraints)
 
 
 # Debugging&Troubleshooting
+- Possible error: SD_IMAGE BAD INSTRUCTION: Implement [SearchResultsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/General/SearchResultsViewController.swift) to fix the error. We need to adjust the simulator to iPhone 13 Pro for the screen to better fit searching blocks.
+- 
+
+
+
 # Method Running The Project(Locally)
 # Testing Result
-[viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/viewing%20poster%20images%20inside%20CollectionViewCell.png)
-[play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/play%20title%20button%20added%20in%20upcoming.png)
+[viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/viewing%20poster%20images%20inside%20CollectionViewCell.png)<br/>
+[play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/play%20title%20button%20added%20in%20upcoming.png)<br/>
+
