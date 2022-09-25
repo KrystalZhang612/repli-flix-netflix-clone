@@ -508,8 +508,197 @@ controller.searchBar.placeholder = "Search for a movie or a tv show"
 ```
 Since we set the controller background color as systemGreen, when entering a user query in the placeholder, the current green background will pop out instead of a search result.<br/>
 Use `layout.minimumInteritemSpacing = 0` to set the minimum intermittent spacing.<br/>
-
-
+## ***Querying database for individual movie:***
+To make the searching functionality works, go to Search & Query For Details in the Movie Database API, copy the [url](https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher) to fetch the querying searching data.<br/>
+Then we need:
+```swift 
+guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
+```
+to properly format the url.<br/>
+To get the search data updated itself, we need:
+```swift
+searchController.searchResultsUpdater = self
+```
+And to prevent Xcode from throwing errors, conform the protocols by adding extension:
+```swift 
+extension SearchViewController: UISearchResultsUpdating
+```
+Along with prompting a non-empty and at least count of 3 (2 characters+) user query and also to minimize the cells:
+```swift 
+ !query.trimmingCharacters(in: .whitespaces).isEmpty, query.trimmingCharacters(in: .whitespaces).count >= 3
+```
+We don’t need a `weak self` in the switch here but only success and failure.<br/>
+Configure the searching query to be a working array:
+```swift 
+let title = titles[indexPath.row]
+ cell.configure(with: title.poster_path ?? “”)
+```
+[Searching placeholder works.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#testing-result)
+## ***Using Youtube API:***
+Go to [Google Console Cloud](https://console.cloud.google.com).<br/>
+On Dashboard, click API Services & API Overview -> Credentials -> Create a new project -> create credentials -> API Key created -> Enable APIs & Services -> YouTube Data API v3 -> enable YouTube Data API v3. <br/>
+In [APICaller](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Managers/APICaller.swift) in Xcode, do:
+```swift
+static let YoutubeAPI_KEY = API KEY
+```
+Search Youtube Data API-> Content Search -> Show Code(right-hand-sided bar) -> HTTP. <br/>
+Copy the [YouTube Authorized API KEY](https://youtube.googleapis.com/youtube/v3/search?key=[YOUR_API_KEY]). <br/>.
+In Xcode:
+```swift 
+static let YoutubeBaseURL = "https://youtube.googleapis.com/youtube/v3/search?"
+```
+Then we matched successfully to get the response from the Youtube server.<br/>
+## ***Parsing YouTube API Response:***
+In [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift):
+```swift 
+APICaller.shared.getMovie(with: "RANDOM SEARCHING CONTENTS") { result in  // }
+```
+Then we got the best possible matches of the RANDOM SEARCHING CONTENTS.<br/>
+In APICaller, pass completion success case by accessing the 1st element of items:
+```swift 
+completion(.success(results.items[0]))
+```
+Pass completion failure case:
+```swift 
+completion(.failure(error))
+```
+## ***Handling selections of cells (Tapping on cells):***
+In [CollectionViewTableViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/CollectionViewTableViewCell.swift):
+```swift
+ APICaller.shared.getMovie(with: titleName + "Trailer " ){ result in
+            switch result {
+            case .success(let videoElement):
+                print(videoElement.id)
+            case .failure(let error):
+                print(error.localizedDescription)
+```
+Build and run, and if we click on a specific movie poster.<br/>
+i.e. Minions: The Rise of Gru 2022<br/>
+Output in console simultaneously:<br/> 
+`IdVideoElement(kind: "youtube#video", videoId: "6DxjJzmYsXo")`
+Then we will be redirected to the movie’s official trailer.<br/>
+## ***Creating TitlePreviewViewController:***
+Create a new UI Controller file named [TitlePreviewViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/General/TitlePreviewViewController.swift) in General, then import WebKit with:
+```swift 
+private let webView: WKWebView = WKWebView()
+```
+to enable viewing the trailer videos in our RepliFlix UI.<br/>
+Initialize the UI titles labels and return labels:
+```swift 
+Initialize the UI titles labels and return labels:
+```
+Here, we set `label.numberOfLines = 0` to assign labels to have multiple lines in Swift.<br/>
+Initialize Downloads button:
+```swift 
+ private let downloadButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+```
+Now for the controller, we need to add several subview attributes:
+```swift
+ view.addSubview(webView)
+        view.addSubview(titleLabel)
+        view.addSubview(overviewLabel)
+        view.addSubview(downloadButton)
+```
+We also need to set up for webview constraints:
+```swift 
+ func configureConstraints(){
+        let webViewConstraints = [
+            webView.topAnchor.constraint(equalTo: view.topAnchor),
+            webView.leadingAnchor.constraint(equalTo:
+view.leadingAnchor),
+            webView.trailingAnchor.constraint(equalTo:
+view.trailingAnchor)
+```
+And activate the web view constraints above with:
+```swift 
+NSLayoutConstraint.activate(webViewConstraints)
+```
+We also need some constraints for the title labels:
+```swift 
+ let titleLabelConstraints = [
+            titleLabel.topAnchor.constraint(equalTo:
+webView.bottomAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo:
+view.leadingAnchor, constant: 20),]
+```
+And activate it with: 
+```swift 
+ NSLayoutConstraint.activate(webViewConstraints)
+```
+we also need some constraints for the overview title labels:
+```swift 
+let overviewLabelVConstraints = [
+            overviewLabel.topAnchor.constraint(equalTo:
+titleLabel.bottomAnchor, constant: 15),
+            overviewLabel.leadingAnchor.constraint(equalTo:
+view.leadingAnchor, constant: 20),]
+```
+And activate it with:
+```swift
+NSLayoutConstraint.activate(overviewLabelVConstraints)
+```
+Create a new file named [TitlePreviewViewModel](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/ViewModels/TitlePreviewViewModel.swift) in `ViewModel`. <br/>
+In [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift), navigate to push the animated Title Preview View Model with:
+```swift 
+navigationController?.pushViewController(TitlePreviewViewController(), animated: true)
+```
+With some constraints, in [TitlePreviewViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/General/TitlePreviewViewController.swift), we define:
+```swift
+ private let webView: WKWebView = {
+        let webView = WKWebView()
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        return webView
+```
+We also need marginal constraints for the Download button:
+```swift 
+ let downloadButtonConsraints = [
+            downloadButton.centerXAnchor.constraint(equalTo:
+view.centerXAnchor),
+            downloadButton.topAnchor.constraint(equalTo:
+overviewLabel.bottomAnchor, constant: 25)
+```
+And activate it with:
+```swift 
+NSLayoutConstraint.activate(downloadButtonConsraints)
+```
+Customize the layer radius of the download button:
+```swift 
+button.layer.cornerRadius = 8
+button.layer.masksToBounds = true
+```
+We need to pass YouTube embedded data to web view with the following url:
+```swift
+func configure(with model: TitlePreviewViewModel ){
+        titleLabel.text = model.title
+        overviewLabel.text = model.titleOverview
+        guard let url = URL(string:
+"https://www.youtube.com/embed/)\(model.youtubeView.id.videoId)")
+else{return}
+          webView.load(URLRequest(url: url))
+```
+Also we need to create a protocol:
+```swift 
+protocol CollectionViewTableViewCellDelegate: AnyObject{
+    func collectionViewTableViewCellDidTapCell(_ cell:
+CollectionViewTableViewCell, viewModel: TitlePreviewViewModel)}
+```
+We also need an optional weak delegate of the protocol:
+```swift 
+weak var delegate: CollectionViewTableViewCellDelegate?
+```
+Then we need an extension in [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift) to conform it:
+```swift 
+extension HomeViewController: CollectionViewTableViewCellDelegate {
+    func collectionViewTableViewCellDidTapCell(_ cell:
+CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        let vc = TitlePreviewViewController()
+        vc.configure(with: viewModel)
+        navigationController?.pushViewController(vc, animated: true)}}
+```
+Build and run we then have [homeview.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)
 
 
 
@@ -531,6 +720,7 @@ Use `layout.minimumInteritemSpacing = 0` to set the minimum intermittent spacing
 
 # Debugging&Troubleshooting
 - Possible error: `SD_IMAGE BAD INSTRUCTION`. DEBUGGING: Implement [SearchResultsViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/General/SearchResultsViewController.swift) to fix the error. We need to adjust the simulator to iPhone 13 Pro for the screen to better fit searching blocks.
+- Noticeable error:  SD Image BAD INSTRUCTION error. DEBUGGING:  https://github.com/SDWebImage/SDWebImage/issues/3400. Failed to log metrics. 
 - 
 
 
@@ -539,4 +729,7 @@ Use `layout.minimumInteritemSpacing = 0` to set the minimum intermittent spacing
 # Testing Result
 [viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/viewing%20poster%20images%20inside%20CollectionViewCell.png)<br/>
 [play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/play%20title%20button%20added%20in%20upcoming.png)<br/>
+[Searching placeholder works.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/searching%20placeholder%20works.png)<br/>
+[homeview.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/homeview.png)<br/>
+
 
