@@ -699,6 +699,7 @@ CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
         navigationController?.pushViewController(vc, animated: true)}}
 ```
 Build and run we then have [homeview.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)
+To make the posters clickable, set the delegate to controller, and modify the extension in [HomeViewController(https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift) by placing the current contents into a weak self of dispatch queue:
 
 
 
