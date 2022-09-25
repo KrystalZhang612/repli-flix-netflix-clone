@@ -99,6 +99,24 @@ To add data, create `tableView` function, dequeue the cell with text content “
 ...tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)...cell.textLabel?.text = "Hello world"
 ```
 A vertical list of “Hello World” should be outputting. Done setting up tableView.<br/>
+## ***Heights setup(Headers & Cells):***
+Leverage the delete methods to assign height as 200px to the header and between adjacent cells:
+```swift
+func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return 200}
+```
+Add 4 new groups named `Managers`, `Resources`, `Models` and `Views`.<br/>
+Add [CollectionViewTableViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/CollectionViewTableViewCell.swift) in the Cocoa class in the Views group.<br/>
+## ***Collection View Table Views Cells Management:***
+In [CollectionViewTableViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/CollectionViewTableViewCell.swift), add the identifier, which is the same one as we used previously for registering the normal set:
+```swift 
+static let identifier = "CollectionViewTableViewCell"
+```
+Then initialize the cell style and reusable identifier:
+```swift 
+override init...
+super.init(style: style, reuseIdentifier: reuseIdentifier)
+```
+
 
 
 
