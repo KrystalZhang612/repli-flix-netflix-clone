@@ -236,19 +236,75 @@ Add Netflix logo PNG transparent image into Assets, to keep the image color orig
 image = image?.withRenderingMode(.alwaysOriginal)
 ```
 So the logo retains its red original color and dims when clicked.<br/>
-
+## ***Adding Right Bar Play Button and User Profile Button:***
+We need an array:
+```swift 
+navigationItem.rightBarButtonItems = [...]
+```
+RightBar play button:
+```swift
+UIBarButtonItem(image: UIImage(systemName: "person"),style: .done, target: self, action: nil),
+```
+User Profile button:
+```swift
+UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
+```
+We want the navigation bar to be pushed upwards and disappear as the user scrolls up to prevent it from hiding the contents down below. To make the navigation bar stick on the top, we need to implement such an algorithm: in the given template:
+```swift 
+func scrollViewDidScroll(_ scrollView: UIScrollView)
+```
+```swift 
+navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset)), -offset
+```
+indicates we are pushing the navigation bar upward.<br/>
+## ***Align Header Sections Titles:***
+Starting off by creating a array of strings: 
+```swift 
+let sectionTitles: [String] = ["Trending
+Movies", "Popular", "Trending Tv", "Upcoming Movies", "Top rated"]
+```
+Also, we want these section titles to have proper fonts, frames and bounds, so we need to add a new method:
+```swift 
+ func tableView(_ tableView: UITableView,
+willDisplayHeaderView view: UIView , forSection section: Int ){...}
+header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y:
+header.bounds.origin.y, width: 100, height: header.bounds.height)
+```
+We need to change the section title color as well:
+```swift 
+header.textLabel?.textColor = .white
+```
+## ***Sending URL Requests and Parsing JSON response:***
+Open the [TMDB website](https://www.themoviedb.org/?language=en-US).<br/>
+We need to request an API v3 auth Key from the website to identify and authenticate our application. Then create a new Swift file in Manager named APICaller.<br/>
+For simplicity, create a structure to copy and paste the API Key we just requested:
+```swift 
+struct Constants {
+static let API_KEY = "API_KEY"}
+```
+Create shared API instance: 
+```swift 
+class APICaller{
+    static let shared = APICaller()
+```
+Now we have our data, we need to convert our data into JSON objects to serialize it, without using any 3rd party network layering: 
+```swift 
+let results = JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+```
+Here, we passed the API Documentations data above and allowed fragments.<br/>
+Then we need to add getTrendingMovies function to test if our API works well:
+```swift
+private func getTrendingMovies(){
+        APICaller.shared.getTrendingMovies {_ in }}}
+```
+Built from the console, then we have App connection to the database established successfully. Now copy the movie JSON objects attributes into a structure named Movie:
+```swift 
+struct Movie {id: Int media_type: String? original_name: String? original_title: String? poster_path: String? overview: String? vote_count: Int. release_date: String? vote_average: Double
+```
+Also conform the protocols with `Codable` to get the arrays of objects set up.<br/>
+## ***Using Extensions and Fetch and Retrieve API Datas from Database:***
 
  
-
-
-
-
-
-
-
-
-
-
 
 
 
