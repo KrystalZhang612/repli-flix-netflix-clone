@@ -314,7 +314,69 @@ Similarly as above, we need to get trending TVs by creating function:
 func getTrendingTvs(completion: @escaping (Result<[Tv], Error>)-> Void)
 ```
 with a completion callback handler, we use `JSONSerialization` here instead to fetch data.<br/>
-^^NOTE: To fetch data successfully, we must ensure to resume the task at the end of every API. Thus, we retrieved all upcoming movies and trending movies from the database^^
+`NOTE: To fetch data successfully, we must ensure to resume the task at the end of every API. Thus, we retrieved all upcoming movies and trending movies from the database`.<br/>
+Repeating the same processes above, we thereby also fetched and retrieved data of Popular Movies and Top Rated Movies as `getPopular()` and `getTopRated()`.<br/>
+## ***Refactoring Models:***
+To avoid duplicates, in Models group, merge `Movies` and `Tv` into `Title`, and also merge methods `TrendingMovieResponse()` and `TrendingTvResponse()`  into `TrendingTitleResponse()`.<br/>
+## ***Creating Custom CollectionViewCell:***
+In Views group, create a new file under Cocoa Touch Class and name it as [TitleCollectionViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/TitleCollectionViewCell.swift) to handle everything inside the [CollectionViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/CollectionViewTableViewCell.swift).<br/>
+Start a frame initizalier:
+```swift
+override init(frame: CGRect) {super.init(frame: frame) and required init?(coder: NSCoder){fatalError()
+```
+to avoid fatal error. <br/>
+Then use anonymous closure pattern to create UIImageView method for poster image:<br/>
+```swift 
+private let posterImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+```
+We need an asynchronous image downloader with cache support as a UIImageView category, so from [SDWebImage Dependencies]( https://github.com/SDWebImage/SDWebImage.git), we add the SDWebImage package in GitHub target to our UIImage objects directly. Then in [TitleCollectionViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/TitleCollectionViewCell.swift) add configuration as: 
+```swift 
+ public func configure(with model: String)
+ { guard let url = URL(string: model)
+ else {return} posterImageView.sd_setImage(with: url, completed: nil)
+```
+## ***Passing Data to the CollectionView:***
+We want every single section to handle its own cells, so to fetch API datas properly, we need a enumeration with all sections as distinct cases:
+```swift 
+enum Sections: Int {
+    case TrendingMovies = 0
+    case TrendingTv = 1
+    case Popular = 2
+    case Upcoming = 3
+case TopRated = 4
+```
+To initialize our enumerators as raw values, in [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift), we need a switch method to handle each title case:
+```swift
+switch indexPath.section{
+        case Sections.TrendingMovies.rawValue:  
+        case Sections.TrendingTv.rawValue:
+        case Sections.Popular.rawValue:
+        case Sections.Upcoming.rawValue:
+        case Sections.TopRated.rawValue:
+```
+Configure API Caller for each section title with providing them cases of success and errors:
+```swift 
+ APICaller.shared.getTrendingMovies { result in
+                switch result {
+                case .success(let titles):
+                    cell.configure(with: titles)
+                case .failure(let error):
+print(error.localizedDescription)
+```
+Then in our configuration function, we need to use:
+```swift 
+self.titles = titles
+DispatchQueue.main.async { [weak self] in self?.collectionView.reloadData()
+```
+since we have retrieved the section titles from the [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift), so update and reload the titles array. So now we passed data into CollectionView and got images for each section.<br/>
+## ***Viewing poster images inside CollectionViewCell:***
+
+     
+     
+                
 
 
 
