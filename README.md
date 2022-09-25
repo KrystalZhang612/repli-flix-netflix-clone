@@ -927,10 +927,9 @@ So the system will be notified when a certain movie has finished downloading.<br
   Reference: https://stackoverflow.com/questions/73314364/wkwebview-viewportsizing-logs-in-swiftui
 
 # Method Running The Project(Locally)
-
-
-
-
+Download the project to local directory<br/>
+Xcode must be 13.4 and higher versions<br/>
+Compatible with MacOS Monterey 12.0 or higher versions<br/>
 
 # Testing Result
 [viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/viewing%20poster%20images%20inside%20CollectionViewCell.png)<br/>
