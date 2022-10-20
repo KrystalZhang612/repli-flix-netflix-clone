@@ -19,7 +19,7 @@ Jump to:<br/>
 iPhone 13+, iPad 10.2+ 
 
 # Method Running The Project(Locally)
-Download the project [`RepliFlix.xcodeproj`](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFlix.xcodeproj) and [`RepliFlix`](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFlix) folders to local directory<br/>
+Download the entire project to local directory<br/>
 Xcode must be 13.4 and higher versions with all Xcode dependencies updated. <br/>
 Compatible with MacOS Monterey 12.0 or higher versions<br/>
 Run the project, choose Simulator iPhone 13 or iPhone 13ProMax for best compatiability. 
