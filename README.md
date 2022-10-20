@@ -17,6 +17,13 @@ Jump to:<br/>
 - Searching certain movies or shows when the user inputs certain keywords Redirecting the user directly to the official trailers by clicking on the animated titles.<br/>
 # Compatibility
 iPhone 13+, iPad 10.2+ 
+
+# Method Running The Project(Locally)
+Download the project [`RepliFlix.xcodeproj`](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFlix.xcodeproj) and [`RepliFlix`](https://github.com/KrystalZhang612/RepliFlix/tree/main/RepliFlix) folders to local directory<br/>
+Xcode must be 13.4 and higher versions with all Xcode dependencies updated. <br/>
+Compatible with MacOS Monterey 12.0 or higher versions<br/>
+Run the project, choose Simulator iPhone 13 or iPhone 13ProMax for best compatiability. 
+
 # Developing Tools and Techniques Needed
 [`Xcode 13.4.1 iOS 15.5+`](https://developer.apple.com/documentation/xcode-release-notes/xcode-13_4_1-release-notes) <br/>
 [`SF Symbols Explorer App`](https://apps.apple.com/us/app/sf-symbols-explorer/id1612933742) <br/>
@@ -926,10 +933,6 @@ So the system will be notified when a certain movie has finished downloading.<br
   DEBUGGING: Replace `let webView = WKWebView()` with `let webView = WKWebView(frame: CGRect(x: 0.0, y: 0.0, width: 0.1, height: 0.1))`
   Reference: https://stackoverflow.com/questions/73314364/wkwebview-viewportsizing-logs-in-swiftui
 
-# Method Running The Project(Locally)
-Download the project to local directory<br/>
-Xcode must be 13.4 and higher versions<br/>
-Compatible with MacOS Monterey 12.0 or higher versions<br/>
 
 # Testing Result
 [viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/viewing%20poster%20images%20inside%20CollectionViewCell.png)<br/>
