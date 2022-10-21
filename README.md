@@ -29,6 +29,10 @@ Run the project, choose Simulator iPhone 13 or iPhone 13ProMax for best compatia
 [`SF Symbols Explorer App`](https://apps.apple.com/us/app/sf-symbols-explorer/id1612933742) <br/>
 [`Swift 5`](https://www.swift.org/blog/swift-5-released/)<br/>
 [`MVVM(Model-View-Viewmodel)`](https://en.wikipedia.org/wiki/Model–view–viewmodel)<br/>
+<div>
+        <img src = "https://github.com/devicons/devicon/blob/master/icons/xcode/xcode-plain.svg" title="Xcode" alt="Xcode" width="40" height="40"/>&nbsp;
+</div>
+
 # Prerequisites & Setups
 Set Xcode simulator to Dark Theme by `Developer`-> `Dark Appearance`. <br/>
 Delete `Main` and `Storyboard Key` in `Info Configuration`. <br/>
