@@ -16,7 +16,7 @@ My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 - Enabling to either play or download when the user clicks on certain movies or shows Navigating through different tabs. <br/>
 - Searching certain movies or shows when the user inputs certain keywords Redirecting the user directly to the official trailers by clicking on the animated titles.<br/>
 # Compatibility
-iPhone 13+, iPad 10.2+ 
+`iPhone 13+`,`iPhone13ProMax`,`iPad 10.2+` 
 
 # Method Running The Project(Locally)
 Download the entire project to local directory<br/>
