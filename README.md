@@ -24,7 +24,7 @@ Xcode must be 13.4 and higher versions with all Xcode dependencies updated. <br/
 Compatible with MacOS Monterey 12.0 or higher versions<br/>
 Run the project, choose Simulator iPhone 13 or iPhone 13ProMax for best compatiability. 
 
-# Developing Tools and Techniques Needed
+# ### :hammer_and_wrench: Developing Tools and Techniques Needed
 [`Xcode 13.4.1 iOS 15.5+`](https://developer.apple.com/documentation/xcode-release-notes/xcode-13_4_1-release-notes) <br/>
 [`SF Symbols Explorer App`](https://apps.apple.com/us/app/sf-symbols-explorer/id1612933742) <br/>
 [`Swift 5`](https://www.swift.org/blog/swift-5-released/)<br/>
