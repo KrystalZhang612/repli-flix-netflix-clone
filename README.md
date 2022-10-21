@@ -30,7 +30,7 @@ Run the project, choose Simulator iPhone 13 or iPhone 13ProMax for best compatia
 [`Swift 5`](https://www.swift.org/blog/swift-5-released/)<br/>
 [`MVVM(Model-View-Viewmodel)`](https://en.wikipedia.org/wiki/Model–view–viewmodel)<br/>
 <div>
-        <img src = "https://github.com/devicons/devicon/blob/master/icons/xcode/xcode-plain.svg" title="Xcode" alt="Xcode" width="40" height="40"/>&nbsp;
+        <img src = "https://github.com/devicons/devicon/blob/master/icons/xcode/xcode-plain.svg" title="Xcode" alt="Xcode" width="60" height="60"/>&nbsp;
 </div>
 
 # Prerequisites & Setups
