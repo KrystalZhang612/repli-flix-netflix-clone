@@ -32,7 +32,9 @@ Run the project, choose Simulator iPhone 13 or iPhone 13ProMax for best compatia
 <div>
         <img src = "https://github.com/devicons/devicon/blob/master/icons/xcode/xcode-plain.svg" title="Xcode" alt="Xcode" width="60" height="60"/>&nbsp;
         <img src = "https://github.com/devicons/devicon/blob/master/icons/swift/swift-original.svg" title="Swift 5" alt="Swift 5" width="60" height="60"/>&nbsp;
-        <img src = "https://github.com/devicons/devicon/blob/master/icons/googlecloud/googlecloud-original.svg" alt = "Google Cloud" width="60" height = "60"/>&nbsp;
+        <img src = "https://github.com/devicons/devicon/blob/master/icons/googlecloud/googlecloud-original.svg" title = "Google Cloud" alt = "Google Cloud" width="60" height = "60"/>&nbsp;
+        <img src = "https://photos5.appleinsider.com/gallery/44796-87098-000-lead-SF-Symbols-3-xl.jpg" title = "SF Symbol" alt = "SF Symbol" width = "60" height = "60"/>&nbsp; 
+        
 </div>
 
 # Prerequisites & Setups
