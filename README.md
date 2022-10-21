@@ -955,6 +955,8 @@ So the system will be notified when a certain movie has finished downloading.<br
 [random element generated2.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/random%20element%20generated2.png)<br/>
 [searching bar searching results showing.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/searching%20bar%20searching%20results%20showing.png)<br/>
 [Long press download action.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/long%20press%20download%20action.png)<br/>
+Useful links for homepage icons customization:
+https://www.sitepoint.com/github-profile-readme/
 
 # Author
 Krystal Zhang 
