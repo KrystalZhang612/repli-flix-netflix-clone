@@ -3,7 +3,7 @@ My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 ## RepliFlix App Overview: <br/> 
 ![Screenshot](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20Overview%20on%20iOS%2015.5%20iPhone%20Pro%20Max%2013%20Simulator.png) <br/>
 # Build
-[Method to Run & Test the Project Locally)](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#method-to-run--test-the-project-locally)<br/>
+[Method to Run & Test the Project Locally](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#method-to-run--test-the-project-locally)<br/>
 [Prerequisites & Setups](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#prerequisites--setups)<br/>
 [Debugging&Troubleshooting](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#debuggingtroubleshooting)<br/>
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#synchronous-developing-notes)<br/>
