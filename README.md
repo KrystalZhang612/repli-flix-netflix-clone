@@ -28,10 +28,10 @@ My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 `iPhone 13+`,`iPhone13ProMax`,`iPad 10.2+` 
 
 # Method to Run & Test the Project Locally
-#### Download the entire project to local directory<br/>
-Xcode must be `13.4` and higher versions with all Xcode dependencies updated. <br/>
-Compatible with `MacOS Monterey 12.0` or higher versions<br/>
-Run the project, choose Simulator `iPhone 13` or `iPhone 13ProMax` for best compatiability. 
+### Download the entire project to local directory
+### Xcode must be `13.4` and higher versions with all Xcode dependencies updated. 
+### Compatible with `MacOS Monterey 12.0` or higher versions 
+### Run the project, choose Simulator `iPhone 13` or `iPhone 13ProMax` for best compatiability. 
 
 # :hammer_and_wrench: Developing Languages, Tools, and Techniques Needed
 [Xcode 13.4.1 iOS 15.5+](https://developer.apple.com/documentation/xcode-release-notes/xcode-13_4_1-release-notes) <br/>
