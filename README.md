@@ -2,7 +2,7 @@
 My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 ## RepliFlix App Overview: <br/> 
 <p align = "center">
-        <img src = "https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20Overview%20on%20iOS%2015.5%20iPhone%20Pro%20Max%2013%20Simulator.png" width = "353.6" height ="738.4"/>&nbsp; 
+        <img src = "https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20Overview%20on%20iOS%2015.5%20iPhone%20Pro%20Max%2013%20Simulator.png" width = "401.8181" height ="839.090"/>&nbsp; 
         <img src = "https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20overview-1.png" width = "334.4" height ="740.8"/> 
 </p> 
 
