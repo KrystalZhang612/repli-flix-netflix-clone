@@ -32,7 +32,6 @@ My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 | macOS Mojave     | ✅                 |
 | macOS Monterey   | ✅                 |
 
-`iPhone 13+`,`iPhone13ProMax`,`iPad 10.2+` 
 
 # Method to Run & Test the Project Locally
 ### Download the entire project to local directory
