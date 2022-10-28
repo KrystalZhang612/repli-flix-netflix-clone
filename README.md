@@ -21,7 +21,7 @@ My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 [Synchronous Developing Notes](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix#synchronous-developing-notes)<br/>
 [Testing Result](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix#testing-result)
 # Contribution
-[Author](https://github.com/KrystalZhang612/RepliFlix#author)
+[Author](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix#author)
 # Functionalities/Demo
 - Having navigation bar scrolls with general table views. <br/>
 - Generating lists of trending and upcoming movies and tv shows. <br/> 
