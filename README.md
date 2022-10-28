@@ -1,4 +1,4 @@
-# RepliFlix App
+# KrystalZhang-RepliFlix App
 My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 ## RepliFlix App Overview: <br/> 
 <p align = "center">
