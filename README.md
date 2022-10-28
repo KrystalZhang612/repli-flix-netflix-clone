@@ -1,6 +1,6 @@
 # KrystalZhang-RepliFlix App
 My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
-### ***Please carefully read [LICENSE.md](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/LICENSE) about the Open Source restrictions and the personal use policy of this project under [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html), any commericial uses on this porject by other than the owner [@KrystalZhang612](https://github.com/KrystalZhang612) or the authorized users, including unauthorized modifications, forks, and other commercial-related uses will be subjected to copyright violation with severe legal concerns.***
+### ***Please carefully read [LICENSE.md](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/LICENSE) about the Open Source restrictions and the personal use policy of this project under [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html), any commericial uses on this porject by other than the owner [@KrystalZhang612](https://github.com/KrystalZhang612) or the authorized users and organizations, including unauthorized modifications, forks, pull requests, and other commercial-related uses will be subjected to copyright violation with severe legal concerns.***
 ## RepliFlix App Overview: <br/> 
 <p align = "center">
         <img src = "https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20Overview%20on%20iOS%2015.5%20iPhone%20Pro%20Max%2013%20Simulator.png" width = "401.8181" height ="839.090"/>&nbsp; 
