@@ -976,6 +976,9 @@ So the system will be notified when a certain movie has finished downloading.<br
 Useful links for homepage icons customization:
 https://www.sitepoint.com/github-profile-readme/
 
+# Tags and Topics
+api, swiftui, xcode, swift, swift5, uikit, cgrect, mvvm, google-cloud. 
+
 # Author
 Krystal Zhang 
 https://github.com/KrystalZhang612<hr>
