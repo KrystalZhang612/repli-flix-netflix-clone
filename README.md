@@ -1,4 +1,4 @@
-# KrystalZhang-RepliFlix App
+# RepliFlix App
 My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 ## ***[Copyright and Commercial Use Disclaimer](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix#please-carefully-read-licensemd-about-the-open-source-restrictions-and-the-personal-use-policy-of-this-project-under-gpl-30-license-any-commericial-uses-on-this-project-by-other-than-the-owner-krystalzhang612-or-the-authorized-users-and-organizations-including-unauthorized-modifications-forks-pull-requests-and-other-commercial-related-uses-will-be-subjected-to-copyright-violation-with-sebsequent-legal-concerns)*** 
 ⏬
