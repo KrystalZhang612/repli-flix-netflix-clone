@@ -53,7 +53,7 @@ My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
         <img src = "https://github.com/devicons/devicon/blob/master/icons/swift/swift-original.svg" title="Swift 5" alt="Swift 5" width="60" height="60"/>&nbsp;
         <img src = "https://github.com/devicons/devicon/blob/master/icons/googlecloud/googlecloud-original.svg" title = "Google Cloud" alt = "Google Cloud" width="60" height = "60"/>&nbsp;
         <img src = "https://github.com/KrystalZhang612/images-attachments-collection/blob/main/sf%20symbol%20logo.png" title = "SF Symbol" alt = "SF Symbol" width = "60" height = "60"/>&nbsp; 
-        <img src = "https://github.com/KrystalZhang612/RepliFlix/blob/main/swift%20ui%20symbol%20logo.png" title = "swiftUI" alt = "swiftUI" width = "60" height = "60"/>&nbsp; 
+        <img src = "https://github.com/KrystalZhang612/images-attachments-collection/blob/main/swift%20ui%20symbol%20logo.png" title = "swiftUI" alt = "swiftUI" width = "60" height = "60"/>&nbsp; 
         <img src = "https://github.com/KrystalZhang612/RepliFlix/blob/main/uikit%20symbol%20logo.png" title="UIKit" alt = "UIKit" width = "60" height="60" />&nbsp;       
 </div>
 
