@@ -6,11 +6,11 @@ My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 ## RepliFlix App Overview: <br/> 
 <p align = "center">
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/RepliFlix%20Overview%20on%20iOS%2015.5%20iPhone%20Pro%20Max%2013%20Simulator.png" width = "401.8181" height ="839.090"/>&nbsp; 
-        <img src = "https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20overview-1.png" width = "380" height ="841.8181"/> 
-        <img src ="https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20overview2.png"  width = "380" height ="841.8181"/>&nbsp; 
-        <img src = "https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20overview-3.png"  width = "380" height ="841.8181"/>
-        <img src ="https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20overview-4.png"  width = "380" height ="841.8181"/>&nbsp; 
-        <img src ="https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix%20overview%20-5.png"   width = "380" height ="841.8181"/>
+        <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/RepliFlix%20overview-1.png" width = "380" height ="841.8181"/> 
+        <img src ="https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/RepliFlix%20overview2.png"  width = "380" height ="841.8181"/>&nbsp; 
+        <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/RepliFlix%20overview-3.png"  width = "380" height ="841.8181"/>
+        <img src ="https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/RepliFlix%20overview-4.png"  width = "380" height ="841.8181"/>&nbsp; 
+        <img src ="https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/RepliFlix%20overview%20-5.png"   width = "380" height ="841.8181"/>
 </p> 
 
 
