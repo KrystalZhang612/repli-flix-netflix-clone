@@ -440,7 +440,7 @@ And to avoid the frequently occurred “switch must be exhaustive” error, we m
 Remember to fetch upcoming movies data with `fetchUpcoming()`<br/>
 viewing poster images inside CollectionViewCell.PNG:<br/>
 <p align = "center">
-        <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/viewing%20poster%20images%20inside%20CollectionViewCell.png" width = "380" height = "848.8181">
+        <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/viewing%20poster%20images%20inside%20CollectionViewCell.png" width = "882" height = "1844">
 </p>
 
 ## ***Creating custom TableViewCell from the upcoming table:***
