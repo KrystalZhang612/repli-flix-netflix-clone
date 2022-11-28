@@ -970,7 +970,7 @@ So the system will be notified when a certain movie has finished downloading.<br
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/searching%20placeholder%20works.png" width = "380" height = "848.8181">&nbsp; 
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/homeview.png" width = "380" height = "848.8181">&nbsp; 
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/before%20redirecting.png" width = "380" height = "848.8181">&nbsp; 
-        <img stc = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/after%20redirecting.png" width = "380" height = "848.8181">&nbsp; 
+        <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/after%20redirecting.png" width = "380" height = "848.8181">&nbsp; 
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/After%20modifying%20overview%20alignment%20.png"  width = "380" height = "848.8181">&nbsp; 
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/random%20element%20generated1.png"  width = "380" height = "848.8181">&nbsp; 
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/random%20element%20generated2.png" width = "380" height = "848.8181">&nbsp; 
