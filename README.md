@@ -438,10 +438,7 @@ And to avoid the frequently occurred “switch must be exhaustive” error, we m
     print(error.localizedDescription)
 ```
 Remember to fetch upcoming movies data with `fetchUpcoming()`<br/>
-viewing poster images inside CollectionViewCell.PNG:<br/>
-<p align = "center">
-        <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/viewing%20poster%20images%20inside%20CollectionViewCell.png" width = "882" height = "1844">
-</p>
+[viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/viewing%20poster%20images%20inside%20CollectionViewCell.png)<br/>
 
 ## ***Creating custom TableViewCell from the upcoming table:***
 We need to create a UI Image so that it holds the poster for the title retrieved from the server.<br/>
@@ -492,7 +489,7 @@ And activate the play title button constraints with:
 ```swift
 NSLayoutConstraint.activate(playTitleButtonConstraints)
 ```
-[play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#testing-result)<br/>
+[play title button added in upcoming.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/play%20title%20button%20added%20in%20upcoming.png)<br/>
 Also modify the sizes, the colors and other alignments of the play buttons:
 ```swift
 let image = UIImage(systemName: "play.circle", withConfiguration:
@@ -572,7 +569,7 @@ Configure the searching query to be a working array:
 let title = titles[indexPath.row]
  cell.configure(with: title.poster_path ?? “”)
 ```
-[Searching placeholder works.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#testing-result)
+[Searching placeholder works.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/searching%20placeholder%20works.png)
 ## ***Using Youtube API:***
 Go to [Google Console Cloud](https://console.cloud.google.com).<br/>
 On Dashboard, click API Services & API Overview -> Credentials -> Create a new project -> create credentials -> API Key created -> Enable APIs & Services -> YouTube Data API v3 -> enable YouTube Data API v3. <br/>
@@ -737,7 +734,7 @@ CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
         vc.configure(with: viewModel)
         navigationController?.pushViewController(vc, animated: true)}}
 ```
-Build and run we then have [homeview.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)
+Build and run we then have [homeview.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/homeview.png)
 To make the posters clickable, set the delegate to controller, and modify the extension in [HomeViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/HomeViewController.swift) by placing the current contents into a weak self of dispatch queue:
 ```swift 
 DispatchQueue.main.async { [weak self] in
@@ -748,14 +745,14 @@ animated: true)
 ```
 Now we successfully achieve that functionality of being redirected to a certain movie’s trailer playing and downloading page when clicking on it:<br/>
 I.e. Thor: Love and Thunder 2022<br/>
-[Before redirecting.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
-[after redirecting.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+[Before redirecting.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/before%20redirecting.png)<br/>
+[after redirecting.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/after%20redirecting.png)<br/>
 We also need to add:
 ```swift
 overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 ```
 to better modify the overview alignment.<br/>
-[After modifying overview alignment constraint.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+[After modifying overview alignment constraint.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/After%20modifying%20overview%20alignment%20.png)<br/>
 ## ***Refactoring TableViewHeader Hero title:***
 Fetch random trending movies with this function:
 ```swift 
@@ -783,8 +780,8 @@ posterURL: selectedTitle?.poster_path ?? ""))
                 print(error.localizedDescription)}}
 ```
 Now we successfully generated different random trending movies in Home View page, and each time we reopen the app, there are different trending movie being generated:<br/>
-[random element generated1.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
-[random element generated2.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+[random element generated1.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/random%20element%20generated1.png)<br/>
+[random element generated2.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/random%20element%20generated2.png)<br/>
 ## ***Handling Tapping across all ViewControllers:***
 In [UpcomingViewController](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Controllers/Core/UpcomingViewController.swift):
 ```swift 
@@ -815,7 +812,7 @@ And make it an accessible public weak var delegate:
 public weak var delegate: SearchResultsViewControllerDelegate?
 ```
 Now configure to conform the searching view results in SearchViewController:<br/>
-[searching bar searching results showing.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+[searching bar searching results showing.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/searching%20bar%20searching%20results%20showing.png)<br/>
 We also want to be redirected to a downloading page when we click on the home view posters.<br/>
 So in [CollectionViewTableViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/CollectionViewTableViewCell.swift), we need to add a downloading action:
 ```swift 
@@ -834,7 +831,7 @@ options: .displayInline, children: [downloadAction])
         return config }}
 ```
 So that in Home View, when we click on any poster and hold for couple second, there will appear a download option for us to be redirected to Downloads bar for the movie:<br/>
-[Long press download action.PNG](https://github.com/KrystalZhang612/RepliFlix#testing-result)<br/>
+[Long press download action.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/long%20press%20download%20action.png)<br/>
 Add optional downloading path:
 ```swift
  private func downloadTitleAt(indexPath: IndexPath){
@@ -967,17 +964,12 @@ So the system will be notified when a certain movie has finished downloading.<br
 
 
 # Testing Result
-[viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/viewing%20poster%20images%20inside%20CollectionViewCell.PNG)<br/> 
-[play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/play%20title%20button%20added%20in%20upcoming.png)<br/>
-[Searching placeholder works.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/searching%20placeholder%20works.png)<br/>
-[homeview.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/homeview.png)<br/>
-[Before redirecting.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/before%20redirecting.png)<br/>
-[after redirecting.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/after%20redirecting.png)<br/>
-[After modifying overview alignment constraint.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/After%20modifying%20overview%20alignment%20.png)<br/>
-[random element generated1.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/random%20element%20generated1.png)<br/>
-[random element generated2.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/random%20element%20generated2.png)<br/>
-[searching bar searching results showing.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/searching%20bar%20searching%20results%20showing.png)<br/>
-[Long press download action.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/long%20press%20download%20action.png)<br/>
+
+
+
+
+
+
 Useful links for homepage icons customization:
 https://www.sitepoint.com/github-profile-readme/
 
