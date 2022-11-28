@@ -975,7 +975,7 @@ So the system will be notified when a certain movie has finished downloading.<br
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/random%20element%20generated1.png"  width = "380" height = "848.8181">&nbsp; 
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/random%20element%20generated2.png" width = "380" height = "848.8181">&nbsp; 
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/searching%20bar%20searching%20results%20showing.png" width = "380" height = "848.8181">&nbsp; 
-        <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/long%20press%20download%20action.png" width = "380" height = "848.8181">&nbsp;        
+       
 </p>
 
 
