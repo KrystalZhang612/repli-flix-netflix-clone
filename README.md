@@ -963,16 +963,7 @@ So the system will be notified when a certain movie has finished downloading.<br
 
 
 # Testing Result
-viewing poster images inside CollectionViewCell.PNG:<br/>
-<img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/viewing%20poster%20images%20inside%20CollectionViewCell.png" width = "380" height="848.818181"/> 
-
-
-
-
-
-
-
-
+[viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/viewing%20poster%20images%20inside%20CollectionViewCell.PNG)<br/> 
 [play title button added in upcoming.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/play%20title%20button%20added%20in%20upcoming.png)<br/>
 [Searching placeholder works.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/searching%20placeholder%20works.png)<br/>
 [homeview.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/homeview.png)<br/>
