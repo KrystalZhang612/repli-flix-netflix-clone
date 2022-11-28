@@ -266,7 +266,7 @@ Start off by defining a new configuration function:
 ```swift 
 private func configureNavbar(){...}
 ```
-Add Netflix logo PNG transparent image into Assets, to keep the image color original, we need:
+Add Netflix logo transparent image into Assets, to keep the image color original, we need:
 ```swift 
 image = image?.withRenderingMode(.alwaysOriginal)
 ```
@@ -438,7 +438,11 @@ And to avoid the frequently occurred “switch must be exhaustive” error, we m
     print(error.localizedDescription)
 ```
 Remember to fetch upcoming movies data with `fetchUpcoming()`<br/>
-[viewing poster images inside CollectionViewCell.PNG](https://github.com/KrystalZhang612/RepliFlix/blob/main/README.md#testing-result)
+viewing poster images inside CollectionViewCell.PNG:<br/>
+<p align = "center">
+        <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/viewing%20poster%20images%20inside%20CollectionViewCell.png" width = "380" height = "848.8181">
+</p>
+
 ## ***Creating custom TableViewCell from the upcoming table:***
 We need to create a UI Image so that it holds the poster for the title retrieved from the server.<br/>
 So in [TitleTableViewCell](https://github.com/KrystalZhang612/RepliFlix/blob/main/RepliFlix/Views/TitleTableViewCell.swift) under Cocoa Touch class:
