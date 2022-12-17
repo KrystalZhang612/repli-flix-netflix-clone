@@ -39,6 +39,7 @@ My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 
 # Method to Run & Test the Project Locally
 ### Download the entire project to local directory
+### Change the two APIs in [APICaller.swift](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/RepliFlix/Managers/APICaller.swift) with your own API Keys. 
 ### Xcode must be `13.4` and higher versions with all Xcode dependencies updated. 
 ### Compatible with `MacOS Monterey 12.0` or higher versions 
 ### Run the project, choose Simulator `iPhone 13` or `iPhone 13 Pro Max` for best compatiability. 
