@@ -8,8 +8,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    
-    
+   
     private var titles: [Title] = [Title]()
     
     private let discoverTable: UITableView = {
@@ -17,7 +16,6 @@ class SearchViewController: UIViewController {
         table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
     }()
-    
     
     private let searchController: UISearchController = {
         
@@ -27,8 +25,6 @@ class SearchViewController: UIViewController {
         return controller
     
     }()
-
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +63,6 @@ class SearchViewController: UIViewController {
         discoverTable.frame = view.bounds
 
     }
-
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
@@ -75,7 +70,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
         return titles.count;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else {return UITableViewCell()
             
         }
@@ -113,10 +107,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
             
         }
     }
-    
-    
-    
-    
     
 }
 
