@@ -67,10 +67,8 @@ class CollectionViewTableViewCell: UITableViewCell {
                 print(error.localizedDescription)
             }
         }
-    }
-    
+    } 
 }
-
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     
@@ -87,8 +85,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         return cell
         
     }
-    
-    
+     
     func collectionView(_ collectionView: UICollectionView,  numberOfItemsInSection section: Int) -> Int {
         return titles.count
     }
@@ -119,8 +116,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
-                
+        }        
     }
     
     
@@ -138,5 +134,3 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         return config
     }
 }
-
-
