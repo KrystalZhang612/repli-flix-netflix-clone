@@ -51,7 +51,6 @@ class DownloadsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         downloadedTable.frame = view.bounds
         
-        
     }
 
 }
