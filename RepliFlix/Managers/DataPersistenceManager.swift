@@ -11,7 +11,6 @@ import CoreData
 
 
 class DataPersistenceManager {
-    
     enum DatabasError: Error{
         case failedToSaveData
         case failedToFetchData
@@ -86,6 +85,5 @@ class DataPersistenceManager {
             completion(.failure(DatabasError.failedToDeleteData))
             
         }
-    }
-    
+    } 
 }
