@@ -16,7 +16,7 @@ class HeroHeaderUIView: UIView {
         button.layer.borderWidth = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 5
-        
+ 
         return button      
         
     }()
@@ -80,8 +80,7 @@ class HeroHeaderUIView: UIView {
         NSLayoutConstraint.activate(downloadButtonConstraints)
            
     }
-    
-    
+  
     public func configure(with model: TitleViewModel) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterURL)") else {
             return
@@ -93,8 +92,7 @@ class HeroHeaderUIView: UIView {
     override func layoutSubviews(){
         super.layoutSubviews()
         heroImageView.frame = bounds
-        
-        
+      
     }
     required init?(coder: NSCoder){
         fatalError()
