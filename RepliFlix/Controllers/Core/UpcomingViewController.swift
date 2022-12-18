@@ -25,8 +25,7 @@ class UpcomingViewController: UIViewController {
         title = "Upcoming"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
-        
-        
+          
         view.addSubview(upcomingTable)
         upcomingTable.delegate = self
         upcomingTable.dataSource = self
@@ -98,6 +97,5 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
                 print(error.localizedDescription)
             }
         }
-    }
-    
+    }  
 }
