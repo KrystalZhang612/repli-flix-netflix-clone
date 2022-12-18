@@ -22,8 +22,7 @@ class HomeViewController: UIViewController {
     private var headerView: HeroHeaderUIView?
     
     let sectionTitles: [String] = ["Trending Movies", "Trending Tv", "Popular","Upcoming Movies", "Top rated"]
-    
-    
+   
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
@@ -38,7 +37,6 @@ class HomeViewController: UIViewController {
         homeFeedTable.dataSource = self
         
         configureNavbar()
-        
         
         headerView = HeroHeaderUIView(frame: CGRect(x:0, y:0, width: view.bounds.width, height: 500))
         homeFeedTable.tableHeaderView = headerView
@@ -58,8 +56,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
-    
+   
     private func configureNavbar(){
         var image = UIImage(named: "netflix-logo-transparent")
         image = image?.withRenderingMode(.alwaysOriginal)
@@ -77,9 +74,7 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     
     }
-
 }
-
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -96,12 +91,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for:
             indexPath) as? CollectionViewTableViewCell else {
-            return UITableViewCell()
-            
+            return UITableViewCell()    
         }
         
         cell.delegate = self
-        
         
         switch indexPath.section{
         case Sections.TrendingMovies.rawValue:
@@ -163,8 +156,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        return cell
-        
+        return cell   
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -188,14 +180,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    
-
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
     }
-    
-    
-    
+   
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let defaultOffset = view.safeAreaInsets.top
         let offset = scrollView.contentOffset.y + defaultOffset
@@ -213,10 +201,5 @@ extension HomeViewController: CollectionViewTableViewCellDelegate {
             vc.configure(with: viewModel)
             self?.navigationController?.pushViewController(vc, animated: true)
         }
-       
     }
 }
-
-
-
-
