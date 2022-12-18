@@ -13,7 +13,6 @@ protocol SearchResultsViewControllerDelegate: AnyObject {
 
 class SearchResultsViewController: UIViewController {
     
-    
     public var titles: [Title] = [Title]()
     
     public weak var delegate: SearchResultsViewControllerDelegate?
