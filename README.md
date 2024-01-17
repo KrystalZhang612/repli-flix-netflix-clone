@@ -2,7 +2,7 @@
 My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 ## ***[Copyright and Commercial Use Disclaimer](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix#please-carefully-read-licensemd-about-the-open-source-restrictions-and-the-personal-use-policy-of-this-project-under-gpl-30-license-any-commericial-uses-on-this-project-by-other-than-the-owner-krystalzhang612-or-the-authorized-users-and-organizations-including-unauthorized-modifications-forks-pull-requests-and-other-commercial-related-uses-will-be-subjected-to-copyright-violation-with-sebsequent-legal-concerns)*** 
 ⏬
-### ***Please carefully read [LICENSE.md](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/LICENSE) about the Open Source restrictions and the personal use policy of this project under [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html), any commericial uses on this project by other than the owner [@KrystalZhang612](https://github.com/KrystalZhang612) or the authorized users and organizations will be subjected to copyright violation with sebsequent potential legal concerns.***
+### ***Please carefully read [LICENSE.md](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/LICENSE) about the Open Source restrictions and the personal use policy of this project under [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html), any commercial uses on this project by other than the owner [@KrystalZhang612](https://github.com/KrystalZhang612) or the authorized users and organizations will be subjected to copyright violation with subsequent potential legal concerns.***
 ## RepliFlix App Overview: <br/> 
 <p align = "center">
         <img src = "https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/testing-result-RepliFlix/RepliFlix%20Overview%20on%20iOS%2015.5%20iPhone%20Pro%20Max%2013%20Simulator.png" width = "401.8181" height ="839.090"/>&nbsp; 
@@ -39,7 +39,190 @@ My Replica of Netflix iOS App using Swift 5, UIKit, and Xcode. <br/>
 
 # Method to Run & Test the Project Locally
 ### Download the entire project to local directory
-### Change the two APIs in [APICaller.swift](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/RepliFlix/Managers/APICaller.swift) with your own API Keys. 
+Create a new file named `APICaller.swift` in `RepliFlix/Managers/`: 
+```swift
+import Foundation
+
+struct Constants {
+    static let API_KEY  = "YOUR OWN API KEY"
+    static let baseURL = "https://api.themoviedb.org"
+    static let YoutubeAPI_KEY = "YOUR OWN YOUTUBE API KEY"
+    static let YoutubeBaseURL =  "https://youtube.googleapis.com/youtube/v3/search?"
+    
+    }
+
+enum APIError: Error {
+    case failedTogetData
+}
+                                
+
+class APICaller{
+    static let shared = APICaller()
+    
+    func getTrendingMovies(completion: @escaping (Result<[Title], Error>)-> Void){
+        
+        guard let url = URL(string: "\(Constants.baseURL)/3/trending/movie/day?api_key=\(Constants.API_KEY)") else{return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(TrendingTitleResponse.self , from: data)
+                completion(.success(results.results))
+        
+            }catch {
+                completion(.failure(APIError.failedTogetData))
+            }
+            
+        }
+        
+        task.resume()
+        
+    }
+    
+    func getTrendingTvs(completion: @escaping (Result<[Title], Error>)-> Void){
+        guard let url = URL(string: "\(Constants.baseURL)/3/trending/tv/day?api_key=\(Constants.API_KEY)") else{return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+                completion(.success(results.results))
+                
+            }
+            catch{
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+        
+        task.resume()
+        
+    }
+    
+    func getUpcomingMovies(completion: @escaping (Result<[Title], Error>)-> Void){
+        guard let url = URL(string: "\(Constants.baseURL)/3/movie/upcoming?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+                completion(.success(results.results))
+                
+            } catch{
+                print(error.localizedDescription)
+            }
+            
+        }
+        
+        task.resume()
+    }
+    
+    func getPopular(completion: @escaping (Result<[Title], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)/3/movie/popular?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+                completion(.success(results.results))
+            }catch {
+                completion(.failure(APIError.failedTogetData))
+            }
+            
+        }
+        
+        task.resume()
+        
+        }
+    
+    func getTopRated(completion: @escaping (Result<[Title], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)/3/movie/top_rated?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else{
+                return
+        }
+        do {
+            let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+            completion(.success(results.results))
+        } catch{
+            completion(.failure(APIError.failedTogetData))
+        }
+    }
+        task.resume()
+}
+    
+    
+    func getDiscoverMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
+        
+        guard let url = URL(string: "\(Constants.baseURL)/3/discover/movie?api_key=\(Constants.API_KEY)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else{
+                return
+        }
+        do {
+            let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+            completion(.success(results.results))
+        } catch{
+            completion(.failure(APIError.failedTogetData))
+        }
+    }
+        task.resume()
+    
+    }
+    
+    func search(with query: String, completion: @escaping (Result<[Title], Error>)-> Void){
+        
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
+        guard let url = URL(string: "\(Constants.baseURL)/3/search/movie?api_key=\(Constants.API_KEY)&query=\(query)") else{
+            return
+        }
+       
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+                completion(.success(results.results))
+                
+            } catch{
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+        task.resume()
+        
+    }
+    
+    func getMovie(with query: String, completion: @escaping (Result<VideoElement, Error>) -> Void) {
+        
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
+        guard let url = URL(string: "\(Constants.YoutubeBaseURL)q=\(query)&key=\(Constants.YoutubeAPI_KEY)") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let results = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
+                
+                completion(.success(results.items[0]))
+                  
+            } catch{
+                completion(.failure(error))
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    
+    }
+}
+```
+Change the two APIs in [APICaller.swift](https://github.com/KrystalZhang612/KrystalZhang-RepliFlix/blob/main/RepliFlix/Managers/APICaller.swift) with your own API Keys. 
 ### Xcode must be `13.4` and higher versions with all Xcode dependencies updated. 
 ### Compatible with `MacOS Monterey 12.0` or higher versions 
 ### Run the project, choose Simulator `iPhone 13` or `iPhone 13 Pro Max` for best compatiability. 
